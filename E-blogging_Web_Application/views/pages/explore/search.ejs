@@ -1,0 +1,23 @@
+<%- include('../../partials/header.ejs') %>
+
+    <div class="searchContainer"  id ="searchContainer">
+        <div class="results"><h1 class="text-center"> Search results for <%= value %></h1></div>
+        <% if (post.length > 0) { %>
+            <% post.forEach(post => { %> 
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-6 d-flex justify-content-center align-items-center">
+                        <div class="card">
+                            <div class="card-header">
+                                <a href="/explore/<%= post._id %>"> <%= post.title %> </a>
+                            </div>
+                            <img src="<%= post.thumbnail?post.thumbnail:'' %>" alt="Post thumbnail" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+
+        <%} else { %>
+            <p>There is no blog to display</p>
+        <%}%>
+
+    </div>
